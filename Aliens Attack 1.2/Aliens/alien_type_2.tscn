@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://bry0qbagwedxn"]
+
+[ext_resource type="Script" path="res://Aliens/alien_type_2.gd" id="1_4kxmm"]
+[ext_resource type="Texture2D" uid="uid://dtsg7ffru18og" path="res://Aliens/Alien2.png" id="2_v60d0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0727"]
+atlas = ExtResource("2_v60d0")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd5rn"]
+atlas = ExtResource("2_v60d0")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy682"]
+atlas = ExtResource("2_v60d0")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q151"]
+atlas = ExtResource("2_v60d0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2j06"]
+atlas = ExtResource("2_v60d0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbm21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0727")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd5rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy682")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q151")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2j06")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llk2s"]
+size = Vector2(17, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aefg"]
+size = Vector2(923.344, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nr86"]
+size = Vector2(5, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj5wj"]
+size = Vector2(5, 4)
+
+[node name="alien_type_2" type="CharacterBody2D"]
+script = ExtResource("1_4kxmm")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xbm21")
+animation = &"shoot"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_llk2s")
+
+[node name="range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+shape = SubResource("RectangleShape2D_3aefg")
+
+[node name="left_foot" type="Area2D" parent="."]
+position = Vector2(-15, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_foot"]
+shape = SubResource("RectangleShape2D_3nr86")
+
+[node name="right_foot" type="Area2D" parent="."]
+position = Vector2(15, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_foot"]
+shape = SubResource("RectangleShape2D_fj5wj")
+
+[connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="range" to="." method="_on_range_entered"]
+[connection signal="body_exited" from="left_foot" to="." method="_on_left_foot_body_exited"]
+[connection signal="body_exited" from="right_foot" to="." method="_on_right_foot_body_exited"]

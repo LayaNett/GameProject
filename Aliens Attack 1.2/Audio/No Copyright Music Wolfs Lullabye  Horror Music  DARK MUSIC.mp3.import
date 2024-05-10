@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3hh2761yylkm"
+path="res://.godot/imported/No Copyright Music Wolfs Lullabye  Horror Music  DARK MUSIC.mp3-ff088b087be0b39811f74f89133a5f11.mp3str"
+
+[deps]
+
+source_file="res://Audio/No Copyright Music Wolfs Lullabye  Horror Music  DARK MUSIC.mp3"
+dest_files=["res://.godot/imported/No Copyright Music Wolfs Lullabye  Horror Music  DARK MUSIC.mp3-ff088b087be0b39811f74f89133a5f11.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

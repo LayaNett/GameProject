@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://i1n8168kxkhy"]
+
+[ext_resource type="Script" path="res://Aliens/alien_type_1.gd" id="1_62adc"]
+[ext_resource type="Texture2D" uid="uid://dwmhcbdsuvfkj" path="res://Aliens/Alien1.png" id="1_fijg0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6or2e"]
+atlas = ExtResource("1_fijg0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg1kh"]
+atlas = ExtResource("1_fijg0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quj8h"]
+atlas = ExtResource("1_fijg0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fh6u"]
+atlas = ExtResource("1_fijg0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qk88j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6or2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg1kh")
+}],
+"loop": false,
+"name": &"smack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quj8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fh6u")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqpqu"]
+size = Vector2(18, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtxp3"]
+size = Vector2(97.5625, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icsx4"]
+size = Vector2(6.5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q4d5"]
+size = Vector2(6.5, 5)
+
+[node name="alien_type_1" type="CharacterBody2D"]
+script = ExtResource("1_62adc")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-34, -17)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qk88j")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0.5)
+shape = SubResource("RectangleShape2D_gqpqu")
+
+[node name="range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_wtxp3")
+
+[node name="left_foot" type="Area2D" parent="."]
+position = Vector2(-12, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_foot"]
+shape = SubResource("RectangleShape2D_icsx4")
+
+[node name="right_foot" type="Area2D" parent="."]
+position = Vector2(20, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_foot"]
+shape = SubResource("RectangleShape2D_8q4d5")
+
+[connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="range" to="." method="_on_range_entered"]
+[connection signal="body_exited" from="left_foot" to="." method="_on_left_foot_body_exited"]
+[connection signal="body_exited" from="right_foot" to="." method="_on_right_foot_body_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpkwthk8slugk"
+path="res://.godot/imported/Retro Electro EDM 90s Music  90er Techno (1).mp3-f601746b6f6001a9dc8c791a19c04baf.mp3str"
+
+[deps]
+
+source_file="res://Audio/Retro Electro EDM 90s Music  90er Techno (1).mp3"
+dest_files=["res://.godot/imported/Retro Electro EDM 90s Music  90er Techno (1).mp3-f601746b6f6001a9dc8c791a19c04baf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

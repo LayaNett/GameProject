@@ -1,0 +1,159 @@
+[gd_scene load_steps=16 format=3 uid="uid://bom3ipb5vepq1"]
+
+[ext_resource type="Script" path="res://levels/main.gd" id="1_te53q"]
+[ext_resource type="Texture2D" uid="uid://com4elx71bc1c" path="res://Terrain/BG.png" id="2_8hwny"]
+[ext_resource type="PackedScene" uid="uid://bobwyminso8gf" path="res://player/player.tscn" id="4_80pqj"]
+[ext_resource type="Texture2D" uid="uid://ctud8s5kwh74p" path="res://Terrain/New Piskel.png" id="5_234cn"]
+[ext_resource type="Script" path="res://Finish/finish line.gd" id="5_fk6pp"]
+[ext_resource type="Texture2D" uid="uid://codu416to3hk2" path="res://Finish/End (Idle).png" id="6_chhlv"]
+[ext_resource type="PackedScene" uid="uid://bvtest4lfwttl" path="res://Humans/human_type_1.tscn" id="7_pj2wx"]
+[ext_resource type="PackedScene" uid="uid://cq2sodue5ig87" path="res://Humans/human_type_2.tscn" id="8_qf08g"]
+[ext_resource type="PackedScene" uid="uid://i1n8168kxkhy" path="res://Aliens/alien_type_1.tscn" id="9_18kjg"]
+[ext_resource type="PackedScene" uid="uid://bry0qbagwedxn" path="res://Aliens/alien_type_2.tscn" id="10_3u1ms"]
+[ext_resource type="PackedScene" uid="uid://b0jssm7blj3gi" path="res://Ammo/ammo_box.tscn" id="11_al5ld"]
+[ext_resource type="AudioStream" uid="uid://cpkwthk8slugk" path="res://Audio/Retro Electro EDM 90s Music  90er Techno (1).mp3" id="12_s323g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqwuw"]
+texture = ExtResource("5_234cn")
+texture_region_size = Vector2i(30, 30)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.625, -6.25, 6.625, -6.5, 7.5, 10, -10.75, 9.625)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, -6.125, 10.5, -6, 11.125, 11.625, -6.75, 11)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.625, -6.25, 6.625, -6.5, 7.5, 10, -10.75, 9.625)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, -6.125, 10.5, -6, 11.125, 11.625, -6.75, 11)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.875, -3.875, 10.75, -3.875, 11.375, 12.875, -6.75, 13.125)
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 14.125, -8.875, 15.625, 11.75, -8, 10.75)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -7.125, 15, -7, 14.875, -0.125, -15, -0.625)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.875, -8.25, 14.875, -8.25, 14.625, -2.75, -14.875, -2)
+
+[sub_resource type="TileSet" id="TileSet_wdtup"]
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_sqwuw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28q2a"]
+size = Vector2(154, 43)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_te53q")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -32.0
+offset_right = 2717.0
+offset_bottom = 634.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8hwny")
+stretch_mode = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(11, 13)
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_wdtup")
+format = 2
+layer_0/tile_data = PackedInt32Array(851992, 3, 0, 851991, 3, 0, 851990, 3, 0, 851989, 3, 0, 851987, 3, 0, 851988, 3, 0, 851986, 3, 0, 851985, 3, 0, 851984, 3, 0, 851983, 3, 0, 851982, 3, 0, 851981, 3, 0, 851980, 3, 0, 851979, 3, 0, 851978, 3, 0, 851977, 3, 0, 851976, 3, 0, 851975, 3, 0, 851974, 3, 0, 851973, 3, 0, 851972, 3, 0, 851971, 3, 0, 851970, 3, 0, 851969, 3, 0, 851968, 3, 0, 720895, 3, 0, 786431, 3, 0, 851967, 3, 0, 917503, 3, 0, -1, 3, 0, 65535, 3, 0, 131071, 3, 0, 196607, 3, 0, 262143, 3, 0, 327679, 3, 0, 393215, 3, 0, 458751, 3, 0, 524287, 3, 0, 589823, 3, 0, 655359, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 3, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 3, 0, -65526, 3, 0, -65525, 3, 0, -65524, 3, 0, -65523, 3, 0, -65522, 3, 0, -65521, 3, 0, -65520, 3, 0, -65519, 3, 0, -65518, 3, 0, -65517, 3, 0, -65516, 3, 0, -65515, 3, 0, -65514, 3, 0, -65513, 3, 0, -65512, 3, 0, 786438, 131075, 1, 786439, 131075, 1, 786440, 131075, 1, 786443, 131075, 1, 786444, 131075, 1, 786445, 131075, 1, 786441, 3, 1, 786442, 3, 1, 786437, 3, 1, 786446, 3, 1, 786432, 3, 3, 786433, 3, 3, 786434, 3, 3, 786435, 3, 3, 786436, 3, 3, 786447, 3, 3, 786448, 3, 3, 786449, 3, 3, 786450, 3, 3, 786451, 3, 3, 786452, 3, 3, 786453, 3, 3, 786454, 3, 3, 458765, 3, 2, 458766, 3, 2, 458767, 3, 3, 393231, 3, 3, 393230, 3, 3, 393229, 3, 3, 458768, 3, 3, 524304, 3, 2, 524305, 3, 2, 458769, 3, 3, 655360, 3, 2, 655361, 3, 2, 589825, 3, 3, 589824, 3, 3, 786455, 3, 3, 786456, 3, 3, 786457, 3, 3, 786458, 3, 3, 786459, 3, 3, 786460, 3, 3, 786461, 3, 3, 786462, 3, 3, 786463, 3, 3, 786464, 3, 3, 786465, 3, 3, 786466, 3, 3, 786467, 3, 3, 786468, 3, 3, 786469, 3, 3, 786470, 3, 3, 786471, 3, 3, 786472, 3, 3, 786473, 3, 3, 786474, 3, 3, 786475, 3, 3, 786476, 3, 3, 786477, 3, 3, 786478, 3, 3, 786479, 3, 3, 786480, 3, 3, 786481, 3, 3, 786482, 3, 3, 786483, 3, 3, 786484, 3, 3, 786485, 3, 3, 786486, 3, 3, 786487, 65539, 1, 851993, 3, 0, 851994, 3, 0, 851995, 3, 0, 851996, 3, 0, 851997, 3, 0, 851998, 3, 0, 851999, 3, 0, 852000, 3, 0, 852001, 3, 0, 852002, 3, 0, 852003, 3, 0, 852004, 3, 0, 852005, 3, 0, 852006, 3, 0, 852007, 3, 0, 852008, 3, 0, 852009, 3, 0, 852010, 3, 0, 852011, 3, 0, 852012, 3, 0, 852013, 3, 0, 852014, 3, 0, 852015, 3, 0, 852016, 3, 0, 852017, 3, 0, 852018, 3, 0, 852019, 3, 0, 852020, 3, 0, 852021, 3, 0, 852022, 3, 0, 852023, 3, 0, -65511, 3, 0, -65510, 3, 0, -65509, 3, 0, -65508, 3, 0, -65507, 3, 0, -65506, 3, 0, -65505, 3, 0, -65504, 3, 0, -65503, 3, 0, -65502, 3, 0, -65501, 3, 0, -65500, 3, 0, -65499, 3, 0, -65498, 3, 0, -65497, 3, 0, -65496, 3, 0, -65495, 3, 0, -65494, 3, 0, -65493, 3, 0, -65492, 3, 0, -65491, 3, 0, -65490, 3, 0, -65489, 3, 0, -65488, 3, 0, -65487, 3, 0, -65486, 3, 0, -65485, 3, 0, -65484, 3, 0, -65483, 3, 0, -65482, 3, 0, -65481, 3, 0, -65480, 3, 0, 56, 3, 0, 65592, 3, 0, 131128, 3, 0, 196664, 3, 0, 262200, 3, 0, 327736, 3, 0, 393272, 3, 0, 458808, 3, 0, 524344, 3, 0, 589880, 3, 0, 655416, 3, 0, 720952, 3, 0, 786488, 3, 0, 852024, 3, 0, 720942, 3, 3, 655407, 3, 3, 589872, 3, 3, 524337, 3, 3, 524338, 3, 3, 524339, 3, 3, 589875, 3, 2, 589874, 3, 2, 589873, 3, 2, 655409, 3, 2, 655408, 3, 2, 720944, 3, 2, 720943, 3, 2, 720945, 3, 2, 720946, 3, 2, 655410, 3, 2, 589876, 3, 2, 655412, 3, 2, 720948, 3, 2, 720947, 3, 2, 524340, 3, 3, 655411, 3, 2, 393258, 3, 3, 393259, 3, 3, 393260, 3, 3, 393244, 131075, 1, 393245, 131075, 1, 393246, 131075, 1, 393252, 131075, 1, 393253, 3, 1, 393257, 3, 1, 393243, 3, 1, 196659, 3, 3, 196660, 3, 3, 196661, 3, 3, 196662, 3, 3, 589829, 131075, 0, 589832, 131075, 0, 589830, 131075, 0, 589831, 131075, 0, 589848, 131075, 0, 589846, 131075, 0, 393226, 131075, 0, 393225, 131075, 0, 393224, 131075, 0, 393247, 131075, 1, 393248, 131075, 1, 393249, 131075, 1, 393250, 131075, 1, 393251, 131075, 1, 589863, 131075, 0, 589862, 131075, 0, 589864, 131075, 0, 589847, 131075, 0, 589845, 131075, 0, 196663, 3, 3, 458763, 3, 2, 458764, 3, 2, 393227, 3, 3, 393228, 3, 3, 196658, 131075, 0, 196657, 131075, 0, 196656, 131075, 0, 196627, 131075, 0, 196628, 131075, 0, 196629, 131075, 0, 196630, 131075, 0, 196631, 1179648, 1, 196632, 131075, 0, 196626, 131075, 0)
+
+[node name="player" parent="." instance=ExtResource("4_80pqj")]
+position = Vector2(202, 536)
+
+[node name="finish line" type="Area2D" parent="."]
+position = Vector2(2626, 559)
+script = ExtResource("5_fk6pp")
+
+[node name="hitbox" type="CollisionShape2D" parent="finish line"]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_28q2a")
+
+[node name="End(idle)" type="Sprite2D" parent="finish line"]
+texture = ExtResource("6_chhlv")
+
+[node name="Humans" type="Node" parent="."]
+
+[node name="Human1" parent="Humans" instance=ExtResource("7_pj2wx")]
+position = Vector2(1142, 563)
+
+[node name="Human2" parent="Humans" instance=ExtResource("8_qf08g")]
+position = Vector2(485, 267)
+
+[node name="Human3" parent="Humans" instance=ExtResource("7_pj2wx")]
+position = Vector2(2578, 129)
+
+[node name="Human4" parent="Humans" instance=ExtResource("8_qf08g")]
+position = Vector2(1395, 268)
+
+[node name="Aliens" type="Node" parent="."]
+
+[node name="Alien1" parent="Aliens" instance=ExtResource("9_18kjg")]
+position = Vector2(862, 553)
+
+[node name="Alien2" parent="Aliens" instance=ExtResource("10_3u1ms")]
+position = Vector2(1467, 557)
+
+[node name="alien_type_2" parent="Aliens" instance=ExtResource("10_3u1ms")]
+position = Vector2(2082, 267)
+
+[node name="alien_type_1" parent="Aliens" instance=ExtResource("9_18kjg")]
+position = Vector2(2389, 123)
+
+[node name="alien_type_3" parent="Aliens" instance=ExtResource("9_18kjg")]
+position = Vector2(1525, 264)
+
+[node name="alien_type_4" parent="Aliens" instance=ExtResource("9_18kjg")]
+position = Vector2(672, 270)
+
+[node name="alien_type_5" parent="Aliens" instance=ExtResource("10_3u1ms")]
+position = Vector2(1040, 124)
+
+[node name="pickups&powerups" type="Node" parent="."]
+
+[node name="ammo_box1" parent="pickups&powerups" instance=ExtResource("11_al5ld")]
+position = Vector2(56, 418)
+
+[node name="ammo_box2" parent="pickups&powerups" instance=ExtResource("11_al5ld")]
+position = Vector2(2077, 276)
+
+[node name="ammo_box3" parent="pickups&powerups" instance=ExtResource("11_al5ld")]
+position = Vector2(1037, 132)
+
+[node name="ammo_box4" parent="pickups&powerups" instance=ExtResource("11_al5ld")]
+position = Vector2(2663, 124)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_s323g")
+volume_db = -3.0
+autoplay = true

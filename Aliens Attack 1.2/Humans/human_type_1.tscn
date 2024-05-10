@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvtest4lfwttl"]
+
+[ext_resource type="Script" path="res://Humans/Human1.gd" id="1_a6mr0"]
+[ext_resource type="Texture2D" uid="uid://bnygwa62bbh7h" path="res://Humans/SpirteShiverHuman1.png" id="2_q18v7"]
+[ext_resource type="Texture2D" uid="uid://cff1vlrd0bqqw" path="res://Humans/Human1Celebrate.png" id="2_tjhiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypg70"]
+size = Vector2(48, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2tpt"]
+atlas = ExtResource("2_tjhiw")
+region = Rect2(0, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp3ef"]
+atlas = ExtResource("2_tjhiw")
+region = Rect2(34, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm3qp"]
+atlas = ExtResource("2_q18v7")
+region = Rect2(0, 0, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jijpi"]
+atlas = ExtResource("2_q18v7")
+region = Rect2(50, 0, 50, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4ixq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2tpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp3ef")
+}],
+"loop": true,
+"name": &"celebrate",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_sm3qp")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_jijpi")
+}],
+"loop": true,
+"name": &"shiver",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bhwa"]
+size = Vector2(80, 39)
+
+[node name="HumanType1" type="CharacterBody2D"]
+script = ExtResource("1_a6mr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_ypg70")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_c4ixq")
+animation = &"shiver"
+autoplay = "shiver"
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-2, 4.5)
+shape = SubResource("RectangleShape2D_4bhwa")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
