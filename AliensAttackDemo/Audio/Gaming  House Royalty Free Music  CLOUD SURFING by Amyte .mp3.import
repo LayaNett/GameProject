@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rgpuvuc1hico"
+path="res://.godot/imported/Gaming  House Royalty Free Music  CLOUD SURFING by Amyte .mp3-5485e12fdf11fcac01de8cbb6d6ae093.mp3str"
+
+[deps]
+
+source_file="res://Audio/Gaming  House Royalty Free Music  CLOUD SURFING by Amyte .mp3"
+dest_files=["res://.godot/imported/Gaming  House Royalty Free Music  CLOUD SURFING by Amyte .mp3-5485e12fdf11fcac01de8cbb6d6ae093.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bobwyminso8gf"]
+
+[ext_resource type="Script" path="res://player/Player.gd" id="1_bn01d"]
+[ext_resource type="Texture2D" uid="uid://u62pyjahup44" path="res://player/player.png" id="2_n8mq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rhrm"]
+size = Vector2(40, 52)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_bn01d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_7rhrm")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_n8mq6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(102, -30)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = -544.0
+offset_top = -294.0
+offset_right = -504.0
+offset_bottom = -271.0
+text = "HitPoints:
+People Rescued:
+Ammo:"

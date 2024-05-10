@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c35i47j5pdp2q"]
+
+[ext_resource type="Script" path="res://Finish/victory.gd" id="1_ln34p"]
+[ext_resource type="AudioStream" uid="uid://rgpuvuc1hico" path="res://Audio/Gaming  House Royalty Free Music  CLOUD SURFING by Amyte .mp3" id="2_kwhcm"]
+
+[node name="victory" type="Node2D"]
+script = ExtResource("1_ln34p")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 150.0
+offset_right = 691.0
+offset_bottom = 219.0
+theme_override_font_sizes/font_size = 50
+text = "You Won!"
+
+[node name="menu" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 300.0
+offset_right = 701.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[node name="quit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 450.0
+offset_right = 701.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kwhcm")
+volume_db = -3.0
+autoplay = true
+
+[connection signal="pressed" from="Panel/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Panel/quit" to="." method="_on_quit_pressed"]
